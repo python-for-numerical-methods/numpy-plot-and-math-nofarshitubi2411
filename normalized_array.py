@@ -17,20 +17,30 @@ def normalized_array(data):
     # המרת הקלט ל-numpy array לצורך חישובים וקטוריים
     data = np.array(data)
 
-    # מציאת המינימום והמקסימום
+    # מציאת הערך המינימלי והמקסימלי
     min_val = np.min(data)
     max_val = np.max(data)
 
-    # אם כל הערכים זהים
+    # אם כל הערכים זהים - מחזירים מערך אפסים
     if min_val == max_val:
         return np.zeros(len(data))
 
-    # נרמול הנתונים
-    return (data - min_val) / (max_val - min_val)
+    # ביצוע הנרמול
+    normalized = (data - min_val) / (max_val - min_val)
+
+    return normalized
+
 
 if __name__ == "__main__":
     # כאן הסטודנטים יכולים להריץ בדיקה עצמית מהירה
+    
     test_data = [10, 20, 30, 40, 50]
 
     print(f"Original: {test_data}")
     print(f"Normalized: {normalized_array(test_data)}")
+
+    # בדיקה נוספת - כל הערכים זהים
+    equal_data = [5, 5, 5, 5]
+
+    print(f"\nOriginal: {equal_data}")
+    print(f"Normalized: {normalized_array(equal_data)}")
